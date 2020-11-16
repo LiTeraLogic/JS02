@@ -1,0 +1,1713 @@
+@import "vars"
+
+*
+  margin: 0
+  padding: 0
+
+body
+  font-family: 'Lato', sans-serif
+
+.container
+  width: $width
+  margin: 0 auto
+
+
+.header-flex
+  display: flex
+  justify-content: space-between
+  height: 100px
+  align-items: center
+
+.header-left
+  display: flex
+  align-items: center
+
+.header
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.17)
+  border: 1px solid #ececec
+  background-color: $color_white
+
+
+.logo
+  display: flex
+  align-items: center
+  color: #222222
+  font-size: 27px
+  font-weight: 300
+  text-transform: uppercase
+  text-decoration: none
+/*del нижн подчеркивание*/
+
+.form
+  display: flex
+  align-items: center
+
+.header-right
+  display: flex
+  align-items: center
+  position: relative
+
+.logo-d
+  color: $color-pink
+  font-weight: 400
+  letter-spacing: 0.68px
+  margin-right: 37px
+
+.logo-img
+  margin-right: 13px
+
+.account__button
+  height: 38px
+  line-height: 38px
+  /*центрирование текста по вертикали*/
+  padding-left: 19px
+  padding-right: 29px
+  background-color: $color-pink
+  color: $color_white
+  font-size: 15px
+  font-weight: 400
+  letter-spacing: 0.38px
+  text-decoration: none
+  margin-left: 26px
+
+
+.account__icon
+  //padding-left: 8px
+  //color: $color-pink
+
+.account__button:hover
+  background-color: $color_white
+  color: $color-pink
+
+.triangle
+  font-size: 14px
+  line-height: 2.29
+  letter-spacing: 0.35px
+  text-align: right
+  padding-left: 8px
+
+
+.header__cart
+  border-radius: 5px
+  background-color: $color_white
+  border: 1px solid #ececec
+  display: none
+  position: absolute
+  top: 54px
+  right: -43px
+  &_a
+    text-decoration: none
+    color: #222222
+    font-size: 12px
+    font-weight: 700
+    text-transform: uppercase
+  &_p
+    color: $color-pink
+    font-size: 12px
+    font-weight: 400
+    text-transform: uppercase
+    margin-top: 12px
+  &_span
+    color: $color-pink
+    font-weight: 400
+    text-transform: uppercase
+    font-size: 10px
+
+.header__cart:after
+  content: ''
+  display: block
+  width: 12px
+  height: 12px
+  position: absolute
+  left: 26px
+  top: -7px
+  transform: rotate(45deg)
+  background-color: $color_white
+  border-top: 1px solid #e8e8e8
+  border-left: 1px solid #e8e8e8
+
+.header__cart2
+  width: 262px
+.cart_flex
+  margin: 5px 15px 16px 17px
+  padding-bottom: 16px
+  padding-top: 16px
+  display: flex
+  justify-content: space-between
+
+.cart__product
+  margin-top: 10px
+
+.cart__action
+  margin-top: 35px
+
+.cart__button
+  border: 1px solid $color-pink
+  background-color: $color_white
+  margin-left: 18px
+  margin-right: 18px
+  margin-bottom: 11px
+  &_a
+    color: $color-pink
+    font-size: 14px
+    font-weight: 700
+    text-transform: uppercase
+    line-height: 50px
+    text-decoration: none
+    text-align: center
+
+
+.cart__button:hover
+  border: 1px solid #eaeaea
+  background-color: $color_white
+  color: #4a4a4a
+
+.cart__button:hover .cart__button_a
+  color: #4a4a4a
+
+//.menu-list:hover .header__cart
+//  display: block
+
+.border
+  border-bottom: 1px solid #ededed
+
+.star-rating
+  font-size: 12px
+  font-weight: 400
+  text-transform: uppercase
+  &__flex
+    margin-top: 10px
+
+.star-rating__wrap
+  //display: none
+  display: inline-block
+  font-size: 1rem
+
+.star-rating__wrap:after
+  content: ""
+  display: table
+  clear: both
+
+.star-rating__ico
+  float: right
+  padding-left: 2px
+  cursor: pointer
+  color: #e4af48
+
+.star-rating__ico:last-child
+  padding-left: 0
+
+.star-rating__input
+  display: none
+
+.star-rating__ico:hover:before,
+.star-rating__ico:hover ~ .star-rating__ico:before,
+.star-rating__input:checked ~ .star-rating__ico:before
+  content: "\f005"
+
+.header-cart__flex
+  display: flex
+  justify-content: space-between
+  margin-left: 17px
+  margin-right: 17px
+  margin-bottom: 32px
+  &_price
+    color: #222222
+    font-size: 16px
+    font-weight: 700
+    text-transform: uppercase
+
+.header-right:hover .header__cart
+  display: block
+
+.navigation
+  background-color: $color_white
+
+.menu
+  display: flex
+  list-style-type: none
+  /*убираем точки*/
+  justify-content: center
+
+.menu-link
+  padding: 15px
+  display: block
+  /*для учитывания padding*/
+  color: #222222
+  font-size: 14px
+  font-weight: 700
+  text-transform: uppercase
+  text-decoration: none
+
+.promo
+  background-color: #e8e8e8
+
+.promo-content
+  height: 613px
+
+  background: url(../img/promo-back.jpg) 0 -51px
+  /*т.к. картинка сместилась ниже, область больше она больше на 51px*/
+  display: flex
+  align-items: center
+
+.promo-p
+  color: #222222
+  font-size: 40px
+  font-weight: 700
+  text-transform: uppercase
+  line-height: 33px
+
+.pink
+  color: $color-pink
+
+.promo-h3
+  color: #222222
+  font-size: 60px
+  font-weight: 700
+  text-transform: uppercase
+  line-height: 45px
+
+.promo-text
+  border-left: 12px solid $color-pink
+  padding-left: 12px
+
+.form-browse
+  display: block
+  position: relative
+  height: 36px
+  line-height: 38px
+  padding-left: 15px
+  padding-right: 26px
+  border-radius: 3px 0 0 3px
+  border: 1px solid #e6e6e6
+  background: #cdcdcc linear-gradient(to bottom, #f9f9f9 0%, #f5f5f5 100%)
+  //color: #222222
+  //font-size: 14px
+  //font-weight: 300
+  //letter-spacing: 0.35px
+
+.browse__text
+  color: #222222
+  font-size: 14px
+  font-weight: 300
+  letter-spacing: 0.35px
+
+.browse__icon
+  //color: #838383
+  color: #f9f9f9
+  //font-weight: 400
+  line-height: 32px
+  letter-spacing: 0.35px
+  padding-left: 8px
+
+.form-browse:hover .browse__icon
+  color: #838383
+
+.browse__drop
+  border-radius: 5px
+  background-color: $color_white
+  color: #4f4f4f
+  padding: 13px
+  border: 1px solid #e8e8e8
+  position: absolute
+  top: 36px
+  left: 0
+  display: none
+  z-index: 1
+
+
+
+.browse__drop-flex
+  width: 236px
+
+
+.browse__drop:after
+  content: ''
+  display: block
+  width: 12px
+  height: 12px
+  position: absolute
+  left: 69px
+  top: -7px
+  transform: rotate(45deg)
+  background-color: $color_white
+  border-top: 1px solid #e8e8e8
+  border-left: 1px solid #e8e8e8
+
+
+
+.browse__drop-h3
+  color: #232323
+  font-size: 14px
+  font-weight: 400
+  text-transform: uppercase
+  letter-spacing: 0.35px
+  border-bottom: 1px solid #e8e8e8
+  padding-bottom: 8px
+  margin-bottom: 8px
+
+
+.browse__drop-link
+  color: #4f4f4f
+  font-size: 14px
+  font-weight: 400
+  letter-spacing: 0.35px
+  text-decoration: none
+  line-height: 28px
+
+.browse__drop-link:hover
+  color: $color-pink
+
+
+.browse__drop-ul
+  list-style-type: none
+
+.browse__drop-flex:last-of-type
+  margin-bottom: 0
+
+
+.form-browses:hover .browse__drop
+  display: block
+
+.form-browses
+  position: relative
+
+
+.form-text
+  height: 36px
+  border-width: 1px 0 1px 0
+  width: 280px
+  padding-left: 16px
+  //border-radius: 0 3px 3px 0
+  border-style: solid
+  border-color: #e6e6e6
+  background-color: $color_white
+  color: #a4a4a4
+  font-size: 14px
+  font-weight: 300
+  line-height: 32px
+  letter-spacing: 0.35px
+
+.form-button
+  height: 38px
+  line-height: 38px
+  border-radius: 0 3px 3px 0
+  border: 1px solid #e6e6e6
+  background-color: $color_white
+
+
+.btn_search
+  color: #a4a4a4
+  font-size: 14px
+  line-height: 32px
+  letter-spacing: 0.35px
+  margin-right: 11px
+  margin-left: 11px
+
+.btn_search:hover
+  color: $color-pink
+/*для строки ввода-поиска в header->form */
+
+::-webkit-input-placeholder
+  color: #a4a4a4
+  font-size: 14px
+  font-weight: 300
+  letter-spacing: 0.35px
+
+::-moz-placeholder
+  color: #a4a4a4
+  font-size: 14px
+  font-weight: 300
+  letter-spacing: 0.35px
+
+input[placeholder]
+  text-overflow: ellipsis
+
+input::-moz-placeholder
+  text-overflow: ellipsis
+
+input:-moz-placeholder
+  text-overflow: ellipsis
+
+input:-ms-input-placeholder
+  text-overflow: ellipsis
+
+/*:focus:-webkit-input-placeholder
+  color: transparent*/
+
+/*:focus:-moz-placeholder
+  color: transparent*/
+
+/*:focus:-moz-placeholder
+  color: transparent*/
+
+/*:focus:-ms-input-placeholder
+  color: transparent*/
+
+.content-left
+  margin-right: 21px
+  width: 560px
+
+.accesories
+  width: 560px
+  height: 261px
+  margin-top: 20px
+  background-color: #dadad2
+  display: flex
+  justify-content: flex-end
+
+.img-accesories
+  display: flex
+  justify-content: flex-end
+
+.content-right
+  width: 560px
+  display: flex
+  flex-direction: column
+
+.img-woman
+  display: flex
+  align-items: flex-start
+
+.content-flex
+  margin-top: 98px
+  display: flex
+
+.kid
+  margin-top: 21px
+
+.man
+  height: 82px
+  background-color: $color_white
+
+
+.content-left-man
+  height: 542px
+  background-image: url(../img/content-man.jpg)
+
+
+.content-text
+  background-color: $color_white
+  height: 50px
+  display: inline-block
+  vertical-align: top
+  padding: 16px 20px 16px 19px
+  margin-top: 26px
+  position: relative
+  z-index: 2
+
+
+.content-h3
+  color: #222222
+  font-size: 18px
+  font-weight: 700
+  text-transform: uppercase
+  letter-spacing: 0.45px
+
+.content-p
+  text-transform: uppercase
+  color: $color-pink
+  font-weight: 700
+  font-size: 30px
+  letter-spacing: 0.75px
+
+.content-left-accesories
+  height: 261px
+  background-image: url(../img/content-accesories.jpg)
+
+.content-right-woman
+  height: 261px
+  background-image: url(../img/content-woman.jpg)
+
+.content-right-kid
+  height: 542px
+  background-image: url(../img/content-kid.jpg)
+  margin-top: 20px
+
+.content-left-accesory
+  height: 261px
+  background-color: #dadad2
+  margin-top: 20px
+
+.accesory-img
+  z-index: 1
+  float: right
+  position: relative
+  margin-top: -108px
+
+.info
+  margin-top: 100px
+
+.info-header
+  color: #222222
+  font-size: 30px
+  font-weight: 700
+  letter-spacing: 0.75px
+  display: flex
+  justify-content: center
+
+.info-header2
+  height: 18px
+  font-size: 24px
+  font-weight: 900
+  line-height: 0.83
+  letter-spacing: normal
+  text-align: center
+  color: #4d4d4d
+  text-transform: uppercase
+
+.info-text
+  color: #9f9f9f
+  font-size: 14px
+  font-weight: 400
+  letter-spacing: 0.35px
+  display: flex
+  justify-content: center
+  margin-top: 16px
+
+.product
+  width: 263px
+  position: relative
+  margin-bottom: 39px
+
+
+.product:hover
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16)
+
+
+.product-img
+  width: 100%
+
+.product:hover .product-img
+  filter: brightness(60%)
+
+
+.product:hover .product-add
+  display: flex
+
+.product:hover .product-add2
+  display: flex
+
+.product:hover .product-add3
+  display: flex
+
+
+.product-add:hover
+  box-shadow: 0 0 5px $color_white
+
+.product-add2:hover
+  box-shadow: 0 0 5px $color_white
+
+.product-add3:hover
+  box-shadow: 0 0 5px $color_white
+
+
+
+
+
+.product-flex
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+
+
+.product-text-name
+  display: block
+  color: #222222
+  font-size: 13px
+  font-weight: 400
+  text-transform: uppercase
+  text-decoration: none
+  margin-bottom: 15px
+
+
+.product-text-price
+  color: $color-pink
+  font-size: 16px
+  font-weight: 700
+  text-transform: uppercase
+
+
+.product-box
+  margin-top: 60px
+
+.but-browse-all
+  margin-top: 79px
+  margin-bottom: 113px
+  display: flex
+  justify-content: center
+
+.button
+  //width: 145px
+  //height: 11px
+  background-color: $color-pink
+  color: $color_white
+  font-size: 16px
+  font-weight: 700
+  line-height: 54px
+  letter-spacing: 0.4px
+  text-decoration: none
+  padding-left: 24px
+  padding-right: 19px
+.arrow_color
+  color: $color-pink
+  //width: 15px
+  //height: 7px
+  font-size: 15px
+  line-height: 54px
+  letter-spacing: 0.38px
+  padding-left: 9px
+
+.button:hover .arrow_color
+  color: $color_white
+
+.product-text
+  padding: 20px 15px
+
+
+.product-add
+  color: $color_white
+  font-size: 13px
+  font-weight: 700
+  width: 123px
+  height: 39px
+  border: 1px solid $color_white
+  text-decoration: none
+  position: absolute
+  top: 94px
+  left: 70px
+  display: none
+  justify-content: center
+  align-items: center
+
+.product-add2
+  color: $color_white
+  font-size: 13px
+  font-weight: 700
+  width: 57px
+  height: 38px
+  border: 1px solid $color_white
+  text-decoration: none
+  position: absolute
+  top: 145px
+  left: 70px
+  display: none
+  justify-content: center
+  align-items: center
+  border-radius: 3px
+
+.product-add3
+  color: $color_white
+  font-size: 13px
+  font-weight: 700
+  width: 57px
+  height: 38px
+  border: 1px solid $color_white
+  text-decoration: none
+  position: absolute
+  top: 145px
+  left: 136px
+  display: none
+  justify-content: center
+  align-items: center
+  border-radius: 3px
+
+
+.cart_of_add
+  margin-right: 8px
+
+
+
+
+.pluses
+  width: 373px
+  background-color: #222224
+
+
+.plus
+  margin-left: 36px
+  margin-top: 48px
+  display: flex
+  margin-bottom: 36px
+  float: left
+
+
+
+
+.bonus
+  display: flex
+
+
+.bonus-box
+  margin-bottom: 97px
+
+
+.img
+  height: 100%
+
+
+.superoffer
+  width: 767px
+  height: 529px
+  background-image: url(../img/bonus.jpg)
+
+
+
+.superoffer-text
+  color: $color_white
+  height: 78px
+  margin-top: 146px
+  margin-left: 39px
+
+
+.superoffer-h3
+  font-size: 54px
+  font-weight: 700
+  text-transform: uppercase
+  letter-spacing: 1.5px
+  line-height: 40px
+
+
+.superoffer-p
+  font-size: 32px
+  letter-spacing: 0.9px
+  text-transform: uppercase
+
+
+.plus-text
+  color: #fbfbfb
+  width: 219px
+  margin-left: 34px
+
+
+.plus-h3
+  font-size: 20px
+  font-weight: 700
+  letter-spacing: 0.5px
+
+
+.plus-p
+  padding-top: 17px
+  font-size: 14px
+  font-weight: 300
+  letter-spacing: 0.35px
+
+
+.down-content
+  background: url(../img/beach.jpg)
+  height: 438px
+  margin: 0 auto
+
+
+.opinion
+  padding-top: 111px
+  display: flex
+  justify-content: flex-start
+  padding-right: 72px
+  border-right: 1px solid $color_white
+
+
+
+
+.opasity
+  background: rgba(202, 195, 204, 0.5)
+
+
+.opinion-text-1
+  width: 386px
+  color: #222224
+  font-size: 16px
+  font-style: italic
+  letter-spacing: 0.4px
+
+
+.name-1
+  color: $color-pink
+  font-size: 16px
+  font-weight: 700
+  letter-spacing: 0.4px
+
+
+.name-2
+  color: #222224
+  font-size: 12px
+  font-weight: 300
+  letter-spacing: 0.3px
+
+
+.down-content-flex
+  display: flex
+  height: 438px
+
+
+.drop
+  border-radius: 5px
+  background-color: $color_white
+  padding: 20px
+  border: 1px solid #ececec
+  display: none
+  position: absolute
+  top: 42px
+  left: -4px
+
+
+.drop:after
+  content: ''
+  display: block
+  width: 12px
+  height: 12px
+  position: absolute
+  left: 30px
+  top: -6px
+  transform: rotate(45deg)
+  background-color: $color_white
+  border-top: 1px solid #e8e8e8
+  border-left: 1px solid #e8e8e8
+
+
+.drop-h3
+  color: #232323
+  font-size: 14px
+  font-weight: 400
+  text-transform: uppercase
+  letter-spacing: 0.35px
+  border-bottom: 1px solid #e8e8e8
+  padding-bottom: 8px
+  margin-bottom: 8px
+
+
+.drop-link
+  color: #646464
+  font-size: 14px
+  font-weight: 400
+  letter-spacing: 0.35px
+  text-decoration: none
+  line-height: 28px
+
+.drop-link:hover
+  color: $color-pink
+
+
+.drop-ul
+  list-style-type: none
+
+
+.drop-flex
+  width: 235px
+  margin-right: 46px
+
+
+.drop-flex:last-of-type
+  margin-right: 0
+
+.menu-list
+  position: relative
+  border-bottom: 3px solid $color_white
+
+.menu-list:hover
+  border-bottom: 3px solid $color-pink
+
+
+.menu-list:hover .drop
+  display: flex
+
+
+.opinion-img
+  margin-right: 28px
+
+
+.opinion-text
+  margin-top: 12px
+
+
+.subcribe
+  margin-left: 92px
+
+
+.subcribe-text-h3
+  color: #222224
+  font-weight: 400
+  font-size: 24px
+  letter-spacing: 0.6px
+  text-transform: uppercase
+  line-height: 48px
+
+
+.subcribe-text-p
+  color: #222224
+  font-size: 14px
+  font-weight: 400
+  text-transform: uppercase
+  letter-spacing: 0.35px
+
+
+.subcribe-text
+  margin-top: 148px
+  margin-bottom: 35px
+  display: flex
+  flex-direction: column
+  align-items: center
+
+
+.subcribe-form-text
+  padding-left: 28px
+  border-radius: 23px 0 0 23px
+  background-color: #e1e1e1
+  opacity: 0.67
+  color: #222224
+  font-size: 14px
+  font-weight: 400
+  letter-spacing: 0.35px
+  width: 282px
+  height: 46px
+  border: none
+
+
+.subcribe-form-button
+  border-radius: 0 23px 23px 0
+  background-color: $color-pink
+  border: none
+  height: 46px
+  color: $color_white
+  font-size: 14px
+  font-weight: 400
+  letter-spacing: 0.35px
+  padding-left: 20px
+  padding-right: 20px
+.subcribe-form-button:hover
+  background-color: $color_white
+  color: $color-pink
+
+.block-flex
+  display: flex
+  justify-content: flex-start
+
+
+.block-text
+  width: 427px
+  margin-top: 29px
+  margin-right: 64px
+  color: #898989
+  font-size: 14px
+  font-weight: 300
+  letter-spacing: 0.35px
+
+
+
+.blocks
+  margin-top: 109px
+  display: flex
+  justify-content: flex-start
+  margin-bottom: 89px
+
+
+.block-logo
+  color: #3e3e40
+  font-size: 27px
+  font-weight: 300
+  text-transform: uppercase
+  letter-spacing: 0.68px
+  text-decoration: none
+
+.block-ul
+  list-style-type: none
+
+
+.block-link
+  text-decoration: none
+  color: #898989
+  font-size: 16px
+  font-weight: 400
+  letter-spacing: 0.4px
+  line-height: 32px
+
+.block-link:hover
+  color: $color-pink
+
+
+.block-h3
+  color: $color-pink
+  font-size: 18px
+  font-weight: 700
+  text-transform: uppercase
+  letter-spacing: 0.45px
+  margin-bottom: 45px
+
+
+.block-company
+  width: 230px
+
+
+.blocks-company
+  display: flex
+  justify-content: space-between
+
+
+.down-footer
+  background-color: #e6e6e6
+
+
+.down-footer-flex
+  display: flex
+  justify-content: space-between
+  height: 79px
+
+
+.down-footer-right-text
+  color: #7a7a7a
+  font-size: 16px
+  font-weight: 400
+  letter-spacing: 0.4px
+
+
+.down-footer-right
+  display: flex
+  align-items: center
+
+
+.icons
+  list-style-type: none
+  display: flex
+  justify-content: flex-end
+
+
+.down-footer-left
+  display: flex
+  align-items: center
+
+
+.font-icon
+  margin-right: 8px
+  width: 32px
+  height: 32px
+  background-color: $color_white
+  display: flex
+  justify-content: center
+  align-items: center
+  text-decoration: none
+  color: #b2b2b2
+  font-size: 16px
+  font-weight: 400
+  letter-spacing: 0.4px
+
+.font-icon:hover
+  background-color: $color-pink
+  color: #f7f7f8
+
+
+.arrivals
+  background-color: #f8f3f4
+
+
+.arrival
+  display: flex
+  justify-content: space-between
+  align-items: center
+  height: 148px
+
+
+.arrivals-left
+  color: $color-pink
+  font-size: 24px
+  font-weight: 400
+  text-transform: uppercase
+
+
+.arrivals-right
+  font-size: 14px
+  text-transform: uppercase
+
+
+.arrivals-right-pink
+  color: $color-pink
+  font-weight: 700
+
+
+.arrivals-right-text
+  color: #636363
+  font-weight: 300
+
+
+.cart-table
+  width: 100%
+  border: 1px
+  text-align: left
+  &-th
+    color: #222222
+    font-size: 13px
+    font-weight: 700
+    text-transform: uppercase
+    letter-spacing: -0.2px
+    padding-bottom: 20px
+    border-bottom: 1px solid #eaeaea
+  &-input
+    color: #656565
+    font-size: 13px
+    font-weight: 400
+    line-height: 20px
+    border: 1px solid #eaeaea
+    background-color: $color_white
+    width: 54px
+    text-align: center
+
+
+.cart
+  margin-top: 90px
+  margin-bottom: 79px
+  &-button
+    display: flex
+    justify-content: center
+    border: 1px solid #eaeaea
+    background-color: $color_white
+    color: #4a4a4a
+    font-size: 14px
+    font-weight: 700
+    text-transform: uppercase
+    height: 50px
+    line-height: 50px
+    padding-left: 39px
+    padding-right: 39px
+    &-flex
+      display: flex
+      justify-content: space-between
+      margin-top: 44px
+      margin-bottom: 63px
+    &:hover
+      background-color: $color-pink
+      color: #f7f7f8
+
+.cart-table-text-1
+  color: #222222
+  list-style-type: none
+  display: block
+  padding-bottom: 38px
+  text-decoration: none
+
+.cart-table-text-1:hover
+  color: $color-pink
+
+.text-1
+  font-size: 13px
+  font-weight: 400
+  text-transform: uppercase
+  line-height: 13px
+
+
+.text-2
+  font-size: 13px
+  color: #575757
+  font-weight: 400
+
+
+.text-3
+  color: $color_grey
+  font-size: 13px
+  font-weight: 300
+
+
+.cart-table-td-flex
+  display: flex
+  justify-content: flex-start
+  margin-top: 22px
+  padding-bottom: 25px
+  border-bottom: 1px solid #eaeaea
+
+
+.cart-table-text
+  margin-left: 21px
+  margin-top: 13px
+
+
+.circle
+  width: 15px
+  height: 15px
+  color: #c0c0c0
+  font-size: 16px
+  font-weight: 400
+  text-transform: uppercase
+  text-decoration: none
+  &:hover
+    color: $color-pink
+
+.border-none
+  border: none
+
+.cart-data-flex
+  display: block
+
+.cart-data-flex1
+  display: flex
+  justify-content: space-between
+
+.cart-data-checkout
+  background-color: #f5f3f3
+  padding: 40px 43px 42px 44px
+  height: 100%
+
+
+.data-block
+  display: flex
+  margin-bottom: 20px
+
+.data-block:last-child
+  margin: 0
+
+.data-block-checkout
+  //display: flex
+  //justify-content: flex-end
+  margin-bottom: 20px
+  text-align: end
+
+.checkout-text-1
+  color: #4a4a4a
+  font-size: 11px
+  font-weight: 400
+  text-transform: uppercase
+
+.checkout-text-2
+  color: #222222
+  font-size: 16px
+  font-weight: 700
+  text-transform: uppercase
+
+.data-block-border
+  border: 1px solid #e2e2e2
+  margin-top: 22px
+  margin-bottom: 17px
+
+.cart-data-checkout-button
+  display: inline-block
+  height: 50px
+  line-height: 50px
+  padding-left: 42px
+  padding-right: 42px
+  background-color: $color-pink
+  color: $color_white
+  text-decoration: none
+  font-size: 16px
+  font-weight: 700
+  text-transform: uppercase
+
+.cart-data-h3
+  color: #222222
+  font-size: 16px
+  font-weight: 700
+  text-transform: uppercase
+
+.cart-data-p
+  color: #000000
+  font-size: 14px
+  font-weight: 300
+
+.cart-data-text
+  width: 355px
+  height: 45px
+  border: 1px solid #eaeaea
+  background-color: $color_white
+
+.cart-data-button
+  border: 1px solid #eaeaea
+  background-color: $color_white
+  color: #4a4a4a
+  font-size: 11px
+  font-weight: 700
+  text-transform: uppercase
+  height: 35px
+  line-height: 35px
+  padding-left: 16px
+  padding-right: 16px
+
+.cart-data-checkout-button:hover
+  background-color: $color_white
+  color: #4a4a4a
+
+.cart-data-button:hover
+  background-color: $color-pink
+  color: #f7f7f8
+
+.checkout__border
+  border-top: 1px solid #e8e8e8
+  margin-bottom: 33px
+  margin-top: 31px
+
+.checkout
+  margin-top: 89px
+  margin-bottom: 79px
+  &__flex
+    margin-left: 35px
+    //margin-right: 291px
+  &_title
+    color: #222222
+    font-size: 16px
+    line-height: 16px
+    font-weight: 700
+    text-transform: uppercase
+  &_h3
+    color: #222222
+    font-size: 13px
+    font-weight: 400
+    text-transform: uppercase
+    &__flex
+      margin-top: 33px
+  &_p
+    color: #b3b2b2
+    font-size: 13px
+    font-weight: 400
+    line-height: 20px
+    &__flex
+      padding-bottom: 34px
+      padding-top: 15px
+    &__a
+      line-height: 50px
+      //display: block
+      //padding-bottom: 15px
+  &__input
+    display: block
+    margin-bottom: 20px
+    &_input
+      color: #222222
+      font-size: 12px
+      font-weight: 400
+      text-transform: uppercase
+    &_text
+      padding-left: 14px
+  &_a
+    text-decoration: none
+  &_a:hover
+    color: $color-pink
+  &_button
+    border: 1px solid #eaeaea
+    background-color: $color_white
+    color: #4a4a4a
+    font-size: 14px
+    font-weight: 700
+    text-transform: uppercase
+    height: 50px
+    line-height: 50px
+    padding-left: 54px
+    padding-right: 54px
+    margin-right: 32px
+    &__flex
+      margin-top: 38px
+  &__ok_position
+    display: flex
+    justify-content: flex-start
+
+
+
+.checkout_button:hover
+  color: $color_white
+  background-color: $color-pink
+
+.checkout__box-flex
+  margin-top: 39px
+  display: flex
+  justify-content: flex-start
+
+.red
+  color: $color-red
+  //width: 6px
+  //height: 6px
+  font-size: 17px
+  font-weight: 400
+  //height: 20px
+  line-height: 20px
+
+.email__input
+  width: 390px
+  height: 45px
+  border: 1px solid #eaeaea
+  background-color: $color_white
+  margin-bottom: 22px
+  margin-top: 16px
+
+.checkout2
+  //margin-right: 167px
+  margin-left: 291px
+  &__input
+    display: flex
+    flex-direction: column
+    color: #222222
+    font-size: 12px
+    font-weight: 400
+    line-height: 20px
+    text-transform: uppercase
+
+.thing
+  border: 1px solid #eaeaea
+  background-color: $color_white
+  &-slider
+    display: flex
+    justify-content: space-between
+    align-items: center
+    background-color: #f7f7f7
+    &_a
+      color: $color_white
+      font-size: 24px
+      font-weight: 400
+      line-height: 47px
+      background-color: #d8d8d8
+      width: 47px
+      text-decoration: none
+      text-align: center
+  &__text
+    text-align: center
+    &_size
+      border: 1px solid #eaeaea
+      background-color: $color_white
+      padding-top: 73px
+      padding-bottom: 122px
+    &_h3
+      color: #4d4d4d
+      font-size: 18px
+      font-weight: 400
+      line-height: 24px
+      text-transform: uppercase
+      margin-top: 17px
+      margin-bottom: 67px
+    &_h4
+      color: #ef5b70
+      font-size: 24px
+      font-weight: 700
+      line-height: 24px
+    &_h5
+      color: #b9b9b9
+      font-size: 14px
+      font-weight: 700
+      line-height: 24px
+      text-transform: uppercase
+      padding-left: 44px
+    &_flex
+      display: flex
+      justify-content: center
+      margin-bottom: 37px
+    &_color
+      color: #2f2f2f
+  &_p
+    color: #5e5e5e
+    font-size: 14px
+    font-weight: 300
+    line-height: 24px
+    width: 618px
+    text-align: justify
+    &__flex
+      display: flex
+      justify-content: center
+      margin-bottom: 28px
+  &__line
+    display: flex
+    justify-content: center
+    &_1
+      width: 642px
+      margin-top: 43px
+      margin-bottom: 63px
+      border: 1px solid #eaeaea
+  &_border
+    width: 147px
+    border-top: 1px solid #eaeaea
+    //display: flex
+    //justify-content: center
+    //align-items: center
+    //height: 1px
+    //background-color: #eaeaea
+  &__form
+    display: flex
+    justify-content: center
+
+.form__flex:last-child
+  margin-right: 0
+
+
+.border__one
+  width: 62px
+  border-top: 3px solid #ef5b70
+
+.form
+  display: flex
+  justify-content: center
+  margin-bottom: 28px
+  &_button
+    color: #ef5b70
+    font-size: 16px
+    height: 55px
+    line-height: 55px
+    font-weight: 700
+    border: 1px solid #ef5b70
+    background-color: $color_white
+    padding-right: 206px
+    padding-left: 206px
+    text-decoration: none
+  &__flex
+    margin-bottom: 28px
+    color: #2f2f2f
+    font-size: 14px
+    font-weight: 700
+    line-height: 24px
+    text-transform: uppercase
+    margin-right: 53px
+
+.form__flex:last-child
+  margin-right: 0
+
+.form_i__flex
+  padding-right: 15px
+.block
+  display: block
+  width: 144px
+  &__text
+    display: flex
+    justify-content: flex-start
+
+.catalog
+  display: flex
+  margin-top: 59px
+
+.menu-left_margin
+  margin-right: 49px
+
+.menu-left
+  width: 243px
+  border-bottom: 1px solid #ebebeb
+  display: flex
+  justify-content: space-between
+  margin-bottom: 18px
+  &_h3
+    height: 37px
+    font-weight: bold
+    font-stretch: normal
+    font-style: normal
+    font-size: 14px
+    line-height: 37px
+    letter-spacing: normal
+    text-align: left
+    padding-left: 11px
+    text-transform: uppercase
+    color: $color_grey
+  &_p
+    height: 37px
+    line-height: 37px
+    font-weight: normal
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    text-align: left
+    padding-right: 6px
+  &_in
+    padding-left: 12px
+    line-height: 33px
+    letter-spacing: normal
+    text-align: left
+    color: $color_grey
+
+.menu-left_rectangle
+  width: 5px
+  height: 37px
+  background-color: #ef5b70
+  display: flex
+
+.menu-left_flex
+  padding-bottom: 41px
+
+.menu-left_up
+  color: #ef5b70
+
+.menu-left_down
+  color: $color_grey
+
+.products_check
+  display: flex
+  justify-content: space-between
+.products_params
+  background-color: #f3f3f3
+  &__flex
+    padding-bottom: 10px
+    padding-top: 10px
+    padding-left: 9px
+    display: flex
+.param__flex
+  display: flex
+
+  width: 153px
+.param__width
+  margin-left: 10px
+  width: 119px
+.products_sort
+  background-color: $color_white
+  color: $color_grey
+  border: solid 1px #ebebeb
+  font-size: 14px
+  &__flex
+    padding-left: 13px
+    padding-right: 9px
+    padding-top: 10px
+    padding-bottom: 10px
+
+
+.sort__flex
+  display: block
+
+summary
+  display: block
+
+summary::-webkit-details-marker
+  display: none
+
+.down
+  /*.up*/
+  color: $color_grey
+
+.up
+  /*.down*/
+  visibility: hidden
+
+details[open] > summary > div > p > .down
+  /*.up*/
+  display: none
+
+
+details[open] > summary > div  > p > .up
+  /*.down*/
+  visibility: visible
+  color: $color-pink
+  padding-right: 15px
+
+details[open] > summary > div  > div > h3
+  color: $color-pink
+
+
+.trend
+  //height: 39px
+  font-size: 14px
+  font-weight: normal
+  font-stretch: normal
+  font-style: normal
+  line-height: 18px
+  letter-spacing: normal
+  text-align: left
+  color: $color_grey
+  margin-bottom: 11px
+
+.trend:after
+  content: '|'
+  color: #dfdfdf
+  background-color: $color_white
+
+.trend:last-child::after
+  content: ''
+  margin-bottom: 0
+
+.products__choose_grid
+  display: flex
+  max-width: 176px
+  flex-wrap: wrap
+  align-content: space-between
+  justify-content: space-between
+
+.products_price
+  display: block
+.color_grey
+  color: $color_grey
+
+.color-red
+  color: $color-red
+

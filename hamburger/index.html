@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fastfood</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<form action="#">
+    <fieldset>
+        <fieldset>
+            <legend>Какой размер гамбургер выберете?</legend>
+            <div>
+                <input type="radio" name="size" id="small" data-price="50" data-calories="20">
+                <label for = "small">Маленький 50 рублей (20 калорий)</label>
+            </div>
+            <div>
+                <input type="radio" name="size" id="big" data-price="100" data-calories="40" checked>
+                <label for = "big"> Большой 100 рублей (40 калорий)</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Какую начинку предпочитаете?</legend>
+            <div>
+                <input type="radio" name="filling" id="cheese" data-price="10" data-calories="20">
+                <label for = "cheese"> Сыр 10 рублей (20 калорий)</label>
+            </div>
+            <div>
+                <input type="radio" name="filling" id="salad" data-price="20" data-calories="5" checked>
+                <label for = "salad"> Салат 20 рублей (5 калорий)</label>
+            </div>
+            <div>
+                <input type="radio" name="filling" id="potato" data-price="15" data-calories="10">
+                <label for = "potato"> Картофель 15 рублей (10 калорий)</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Приправить?</legend>
+            <div>
+                <input type="checkbox" name="sauce" id="seasoning" data-price="15" data-calories="0" checked>
+                <label for="seasoning">Приправа 15 рублей (0 калорий)</label>
+            </div>
+            <div>
+                <input type="checkbox" name="sauce" id="mayonnaise" data-price="20" data-calories="5" checked>
+                <label for ="mayonnaise">Майонез 20 рублей (5 калорий)</label>
+            </div>
+        </fieldset>
+        <div id="order" class="btn-order">Заказать</div>
+    </fieldset>
+</form>
+
+<script src="main.js"></script>
+<script>
+    window.onload = () => {
+        document.getElementById('order').addEventListener('click', () => new Humburger("size", "filling", "sauce"))
+    }
+</script>
+</body>
+</html>
