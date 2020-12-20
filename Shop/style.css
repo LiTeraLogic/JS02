@@ -42,8 +42,8 @@ body {
 
 .btn-cart:hover {
     border: 2px solid #fdfcfd;
-    //background-color: #f6403f;
-    color: #fdfcfd;
+    background-color: #fdfcfd;
+    color: #f6403f;
 }
 
 .products{
@@ -76,7 +76,7 @@ body {
 }
 
 .buy-btn {
-    border: 1px solid #D72F3E;
+    border: 2px solid #D72F3E;
     background-color: #D72F3E;
     color: #F9F9F9;
     border-radius: 10px;
@@ -87,8 +87,9 @@ body {
 
 .buy-btn:hover {
     box-shadow: 0 0 10px rgba(25, 25, 29, 0.30);
-    border: 1px solid #D72F3E;
-    background-color: #D72F3E;
+    /*border: 1px solid #D72F3E;*/
+    background-color: #F9F9F9;
+    color: #D72F3E;
 }
 
 .text{
