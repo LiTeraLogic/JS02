@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+    <fieldset> <legend>Состевьте свой гамбургер</legend>
+        <fieldset>
+            <legend>Размер</legend>
+            <div>
+                <input type="radio" name="size" value="small" data-price="50" data-calories="20" checked>
+                <label> Маленький (50 рублей, 20 калорий)</label>
+            </div>
+            <div>
+                <input type="radio" name="size" value="big" data-price="100" data-calories="40">
+                <label> Большой (100 рублей, 40 калорий)</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Начинка</legend>
+            <div>
+                <input type="radio" name="filling" value="cheese" data-price="10" data-calories="20" checked>
+                <label> С сыром (+10 рублей, +20 калорий)</label>
+            </div>
+            <div>
+                <input type="radio" name="filling" value="salad" data-price="20" data-calories="5">
+                <label> С салатом (+20 рублей, +5 калорий)</label>
+            </div>
+            <div>
+                <input type="radio" name="filling" value="potatoes" data-price="15" data-calories="10">
+                <label> С картофелем (+15 рублей, +10 калорий)</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Для вкуса</legend>
+            <div>
+                <label for="seasoning">
+                    <input type="checkbox" name="topping" id="seasoning" data-price="15" data-calories="0">
+                    Приправа (15 рублей, 0 калорий)</label>
+            </div>
+            <div>
+                <label for="mayonnaise">
+                    <input type="checkbox" name="topping" id="mayonnaise" data-price="20" data-calories="5">
+                    Майонез (20 рублей, 5 калорий)</label>
+            </div>
+        </fieldset>
+<!--        <button id="order">Сделать заказ</button>-->
+        <input id="order" type="button" value="Сделать заказ">
+    </fieldset>
+</form>
+
+<script src="main.js"></script>
+</body>
+</html>
