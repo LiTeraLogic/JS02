@@ -1,6 +1,130 @@
-// 'use strict'
-
 const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
+
+const app = new Vue({
+    el: "#app",
+    data: {
+        catalogUrl: '/catalogData.json',
+        products: [],
+        imgCatalog: 'https://placehold.it/200x150',
+
+        cartUrl: '/getBasket.json',
+        imgCart: 'https://placehold.it/50x100',
+        productsCart: [],
+        amount: 0, // сумма заказа
+        countGoods:  0,  // количество товаров в корзине
+
+        userSearch: '',
+    },
+    methods: {
+        getJson(url){
+            return fetch(url)
+                .then(result => result.json())
+                .catch(error => {
+                    console.log(error);
+                })
+        },
+        addProduct(element){
+            console.log(element.id_product);
+            this.getJson(`${API}/addToBasket.json`) // проверка связи с  JSON документом
+                .then(data => {
+                    if(data.result === 1){
+                        // console.log(product);
+                        let productId = +element.id_product;
+                        let find = this.productsCart.find(product => product.id_product === productId);
+                        if(find){
+                            find.quantity++;
+                            this.amount = this.amount + find.price;
+                            this._updateCart(find);
+                            // сумма заказа
+                        } else {
+                            let product = {
+                                id_product: productId,
+                                price: +element.price,
+                                product_name: element.product_name,
+                                quantity: 1
+                            };
+                            // this.productsCart = [product];
+                            this.amount = this.amount + product.price; // сумма заказа
+                            ++this.countGoods;
+                            this.productsCart.push(product);
+                            console.log(this.productsCart)
+                            // this.render();
+                        }
+                    } else {
+                        alert('Error');
+                    }
+                })
+        },
+
+        _updateCart(product){
+            let block = document.querySelector(`.cart-item[data-id="${product.id_product}"]`);
+            block.querySelector('.product-number').textContent = `Количество: ${product.quantity}`;
+            block.querySelector('.product-cost').textContent = `Стоимость: $${product.quantity*product.price}`;
+        },
+
+        removeProduct(element){
+            this.getJson(`${API}/deleteFromBasket.json`)
+                .then(data => {
+                    if(data.result === 1){
+                        let productId = +element.id_product;
+                        let find = this.productsCart.find(product => product.id_product === productId);
+                        if(find.quantity > 1){
+                            find.quantity--;
+                            this.amount = this.amount - find.price;
+                            this._updateCart(find);
+
+                        } else {
+                            this.amount = this.amount - find.price; // сумма заказа
+                            --this.countGoods;
+                            this.productsCart.splice(this.productsCart.indexOf(find), 1);
+                            document.querySelector(`.cart-item[data-id="${productId}"]`).remove();
+
+
+                        }
+                    } else {
+                        alert('Error');
+                    }
+                })
+        },
+
+        toggleVisible(container){
+            document.querySelector(container).classList.toggle('invisible');
+        },
+
+        // фильтрация товаров по строке
+        filter(){
+            const regexp = new RegExp(this.userSearch, 'i');
+            this.filtered = this.products.filter(product => regexp.test(product.product_name));
+            this.products.forEach(el => {
+                const block = document.querySelector(`.product-item[data-id="${el.id_product}"]`);
+                if(!this.filtered.includes(el)){
+                    block.classList.add('invisible');
+                } else {
+                    block.classList.remove('invisible');
+                }
+            })
+        },
+    },
+    mounted(){
+        this.getJson(`${API + this.catalogUrl}`)
+            .then(data => {
+                for(let el of data){
+                    this.products.push(el);
+                }
+            });
+
+        this.getJson(`${API + this.cartUrl}`)
+            .then(data => {
+                this.amount = data.amount;
+                this.countGoods = data.countGoods;
+
+                for(let el of data.contents){
+                    this.productsCart.push(el);
+                }
+            });
+    }
+});
+
 
 /**
  * Класс списка товаров
@@ -39,7 +163,7 @@ class List {
             // const productObject = new ProductItem(product);
             // {ProductsList: ProductItem,
             //     Cart: CartItem}
-             const productObject = new this.list[this.constructor.name](product); // создаем мовый объект класса ProductItem или класса CartItem
+            const productObject = new this.list[this.constructor.name](product); // создаем мовый объект класса ProductItem или класса CartItem
             this.allProducts.push(productObject);
             block.insertAdjacentHTML('beforeend', productObject.render());
         }
@@ -47,16 +171,16 @@ class List {
 
     // фильтрация товаров по строке
     filter(value){
-        const regexp = new RegExp(value, 'i');
-        this.filtered = this.allProducts.filter(product => regexp.test(product.product_name));
-        this.allProducts.forEach(el => {
-            const block = document.querySelector(`.product-item[data-id="${el.id_product}"]`);
-            if(!this.filtered.includes(el)){
-                block.classList.add('invisible');
-            } else {
-                block.classList.remove('invisible');
-            }
-        })
+        // const regexp = new RegExp(value, 'i');
+        // this.filtered = this.allProducts.filter(product => regexp.test(product.product_name));
+        // this.allProducts.forEach(el => {
+        //     const block = document.querySelector(`.product-item[data-id="${el.id_product}"]`);
+        //     if(!this.filtered.includes(el)){
+        //         block.classList.add('invisible');
+        //     } else {
+        //         block.classList.remove('invisible');
+        //     }
+        // })
     }
 
     /**
@@ -73,7 +197,7 @@ class List {
  */
 class Item {
 
-     // constructor(el, img='https://placehold.it/50x150'){
+    // constructor(el, img='https://placehold.it/50x150'){
     constructor(el, img = 'img/product.jpg') {
         this.product_name = el.product_name;
         this.price = el.price;
@@ -83,12 +207,12 @@ class Item {
 
     // генерация карточки товара
     render(){
-    // <button class="buy-btn"
-    //     data-id="${this.id_product}"
-    //     data-name="${this.product_name}"
-    //     data-price="${this.price}">Купить</button>
+        // <button class="buy-btn"
+        //     data-id="${this.id_product}"
+        //     data-name="${this.product_name}"
+        //     data-price="${this.price}">Купить</button>
 
-    //    <img class="cart-image" src="${this.img}" alt="image">
+        //    <img class="cart-image" src="${this.img}" alt="image">
         return `<div class="product-item" data-id="${this.id_product}">
                 <div class=""><img src="${this.img}" alt="image"></div>
                 <h3>${this.product_name}</h3>
@@ -204,32 +328,6 @@ class Cart extends List{
         });
     }
 
-    // увеличить количество товаров на 1
-    addProduct(element){
-        this.getJson(`${API}/addToBasket.json`) // проверка связи с  JSON документом
-            .then(data => {
-                if(data.result === 1){
-                    let productId = +element.dataset['id'];
-                    let find = this.allProducts.find(product => product.id_product === productId);
-                    if(find){
-                        find.quantity++;
-                        this._updateCart(find);
-                    } else {
-                        let product = {
-                            id_product: productId,
-                            price: +element.dataset['price'],
-                            product_name: element.dataset['name'],
-                            quantity: 1
-                        };
-                        this.goods = [product];
-                        this.render();
-                    }
-                } else {
-                    alert('Error');
-                }
-            })
-    }
-
     // уменьшить количество товаров на 1
     removeProduct(element){
         this.getJson(`${API}/deleteFromBasket.json`)
@@ -251,11 +349,11 @@ class Cart extends List{
     }
 
     // обновление корзины
-    _updateCart(product){
-        let block = document.querySelector(`.cart-item[data-id="${product.id_product}"]`);
-        block.querySelector('.product-number').textContent = `Количество: ${product.quantity}`;
-        block.querySelector('.product-cost').textContent = `Стоимость: ${product.quantity*product.price}`;
-    }
+    // _updateCart(product){
+    //     let block = document.querySelector(`.cart-item[data-id="${product.id_product}"]`);
+    //     block.querySelector('.product-number').textContent = `Количество: ${product.quantity}`;
+    //     block.querySelector('.product-cost').textContent = `Стоимость: ${product.quantity*product.price}`;
+    // }
 }
 
 /**
@@ -291,10 +389,3 @@ const list2 = {
     ProductsList: ProductItem,
     Cart: CartItem,
 }
-
-let cart = new Cart();
-let list = new ProductsList(cart);
-// Если мы хотим использовать в классе методы другого класса,
-// то удобнее всего  в конструктор класса передать объект класса,
-// методы которого нам нужны в даном классе
-// products.getJson('getProducts.json').then(data => products.handleData(data));
