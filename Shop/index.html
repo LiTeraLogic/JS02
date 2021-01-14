@@ -12,61 +12,34 @@
 <div id="app">
     <header class="header ">
         <div class="container header-flex">
+
             <div class="logo">Shop</div>
-            <form action="#" class="search-form">
-                <input type="text" class="search-field" v-model="userSearch">
-                <input  class="btn-search" @click="filter()" type="submit" value="Search">
+
+            <form action="#" class="search-form" @submit.prevent="filter">
+                <search v-model="userSearch"></search>
+                <input  class="btn-search" type="submit" value="Search">
             </form>
+
             <div class="btn-cart">
-                <button class="btn-cart-btn" @click="toggleVisible('.cart')" type="button">Корзина</button>
-                <div class="cart invisible">
-<!--                <div class="cart ">-->
+                <button class="btn-cart-btn" @click="showCart = !showCart" type="button">Корзина</button>
 
-                    <div class="cart-item" v-for="product of productsCart" :key="product.id_product"
-                         :data-id="product.id_product">
-                        <div class="left-block">
-                            <img class="cart-image"  :src="imgCart" alt="image">
-                            <div class="product-list">
-                                <p class="product-name">Наименование: {{product.product_name}}</p>
-                                <p class="product-price">Цена: ${{product.price}}</p>
-                                <p class="product-number">Количество: {{product.quantity}}</p>
-                            </div>
-                        </div>
-                        <div class="right-block">
-                            <p class="product-cost">Стоимость: ${{product.price*product.quantity}}</p>
-                            <button class="del-btn" @click="removeProduct(product)" :data-id="product.id_product">&times;</button>
-                        </div>
-                    </div>
-
-                    <div class="products-price">
-                        <p > Кол-во наименований: {{countGoods}}</p>
-                        <p > Итого: ${{amount}}</p>
-                    </div>
-
-                </div>
+                <cart :products-cart="productsCart" :img="imgCart" :visibility="showCart"
+                                    :count-goods='countGoods' :amount='amount' @remove="removeProduct"></cart>
             </div>
+
         </div>
     </header>
+
     <main class="container">
-        <div class="products products-flex">
-
-            <div class="product-item" v-for="product of products" :key="product.id_product"
-                 :data-id="product.id_product">
-                <div class=""><img :src="imgCatalog" alt="image"></div>
-                <h3>{{product.product_name}}</h3>
-                <p>$ {{product.price}}</p>
-
-                <input type="button" class="buy-btn" @click="addProduct(product)" value="Купить"
-                       :data-id="product.id_product"
-                       :data-name="product.product_name"
-                       :data-price="product.price">
-            </div>
-        </div>
-
+<!--         filtered - массив товаров из main :products="filtered" :img="imgProduct" ,-->
+<!--         регистрация события @add-product="addProduct", связь через вложенное событие-->
+        <products :products="filtered" :img="imgCatalog" @add-product="addProduct"></products>
     </main>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/ProductComponent.js"></script>
+<script src="js/CartComponent.js"></script>
+<script src="js/SearchComponent.js"></script>
 <script src="js/mainVue.js"></script>
-<!--<script src="js/main.js"></script>-->
 </body>
 </html>
