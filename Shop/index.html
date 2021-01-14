@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;400;700;800&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+<div id="app">
+    <header class="header ">
+        <div class="container header-flex">
+
+            <div class="logo">Shop</div>
+
+            <form action="#" class="search-form" @submit.prevent="filter">
+                <search v-model="userSearch"></search>
+                <input  class="btn-search" type="submit" value="Search">
+            </form>
+
+            <div class="btn-cart">
+                <button class="btn-cart-btn" @click="showCart = !showCart" type="button">Корзина</button>
+
+                <cart :products-cart="productsCart" :img="imgCart" :visibility="showCart"
+                                    :count-goods='countGoods' :amount='amount' @remove="removeProduct"></cart>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="container">
+<!--         filtered - массив товаров из main :products="filtered" :img="imgProduct" ,-->
+<!--         регистрация события @add-product="addProduct", связь через вложенное событие-->
+        <products :products="filtered" :img="imgCatalog" @add-product="addProduct"></products>
+    </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/ProductComponent.js"></script>
+<script src="js/CartComponent.js"></script>
+<script src="js/SearchComponent.js"></script>
+<script src="js/mainVue.js"></script>
+</body>
+</html>
