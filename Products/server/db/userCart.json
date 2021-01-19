@@ -1,0 +1,30 @@
+{
+    "amount": 3461,
+    "countGoods": 4,
+    "contents": [
+        {
+            "id_product": 106,
+            "product_name": "Blouse",
+            "price": 56,
+            "quantity": 17
+        },
+        {
+            "id_product": 103,
+            "product_name": "Jacket",
+            "price": 53,
+            "quantity": 8
+        },
+        {
+            "quantity": 19,
+            "id_product": 105,
+            "product_name": "Hoodie",
+            "price": 55
+        },
+        {
+            "quantity": 24,
+            "id_product": 102,
+            "product_name": "Coat",
+            "price": 52
+        }
+    ]
+}
