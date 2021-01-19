@@ -1,0 +1,47 @@
+[
+  {
+    "id_product": 101,
+    "product_name": "Hoodie",
+    "price": 51
+  },
+  {
+    "id_product": 102,
+    "product_name": "Coat",
+    "price": 52
+  },
+  {
+    "id_product": 103,
+    "product_name": "Jacket",
+    "price": 53
+  },
+  {
+    "id_product": 104,
+    "product_name": "T-shirt",
+    "price": 54
+  },
+  {
+    "id_product": 105,
+    "product_name": "Hoodie",
+    "price": 55
+  },
+  {
+    "id_product": 106,
+    "product_name": "Blouse",
+    "price": 56
+  },
+  {
+    "id_product": 107,
+    "product_name": "Blazer",
+    "price": 57
+  },
+  {
+    "id_product": 108,
+    "product_name": "Coat",
+    "price": 58
+  },
+  {
+    "id_product": 109,
+    "product_name": "T-shirt",
+    "price": 59
+  }
+]
