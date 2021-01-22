@@ -1,0 +1,20 @@
+{
+    "amount": 1600,
+    "countGoods": 2,
+    "contents": [
+        {
+            "quantity": 1,
+            "id_product": 103,
+            "product_name": "Jacket",
+            "price": 400,
+            "imgPath": "img/product-card-103.jpg"
+        },
+        {
+            "quantity": 2,
+            "id_product": 102,
+            "product_name": "Coat",
+            "price": 600,
+            "imgPath": "img/product-card-102.jpg"
+        }
+    ]
+}
