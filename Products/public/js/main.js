@@ -8,9 +8,10 @@ const app = new Vue({
     methods: {
         getJson(url){
             return fetch(url)
-                .then(result => result.json())
+                .then(result => {
+                    return result.json()})
                 .catch(error => {
-                    console.log(error);
+                    this.$refs.error.text = error;
                 })
         },
 
@@ -42,6 +43,18 @@ const app = new Vue({
                     this.$refs.error.text = error;
                 })
         },
+        deleteJson(url){
+            return fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(result => result.json())
+                .catch(error => {
+                    this.$refs.error.text = error;
+                })
+        }
 
     },
     mounted(){
